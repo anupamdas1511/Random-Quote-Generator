@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Your Quote</title>
+</head>
+
+<body>
+    <div class="card">
+        <div id="temp" class="logo">
+            <img src="/twitter.png" alt="twitter" srcset="">
+        </div>
+        <div class="anything">
+            <i class="quotes fa-solid fa-quote-left"></i>
+        </div>
+        <div id="quote" class="writting">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem officia quidem
+                distinctio?
+                Dignissimos ipsam corrupti accusantium veniam minus exercitationem in!</p>
+        </div>
+        <div id="author">
+            <h2>Lorem ipsum dolor </h2>
+        </div>
+        <div id="change">
+            <button>New Quotes</button>
+        </div>
+
+    </div>
+    <script>
+
+        const quotes = document.getElementById('quote');
+        const author = document.getElementById('author');
+        const change = document.getElementById('change');
+        const tweet = document.getElementById('temp');
+
+        let realData;
+        let quotesData;
+        const getNewQuotes = () => {
+            const rand = Math.floor(Math.random() * 1643);
+            quotesData = realData[rand];
+            quotes.innerText = `${quotesData.text}`;
+            console.log(quotesData.author);
+            if (quotesData.author == null) {
+                author.innerText = 'unknown';
+            }
+            else {
+                author.innerHTML = `${quotesData.author}`;
+            }
+        }
+        const redirect = () => {
+            const direct = `https://twitter.com/intent/tweet?text=${quotesData.text}`;
+            window.open(direct);
+        }
+        const getQuotes = async () => {
+            const api = "https://type.fit/api/quotes";
+
+            try {
+                let data = await fetch(api);
+                realData = await data.json();
+                getNewQuotes();
+
+            } catch (error) {
+
+            }
+        }
+        change.addEventListener('click', getNewQuotes)
+        tweet.addEventListener('click', redirect)
+        getQuotes();
+
+    </script>
+</body>
+
+</html>
