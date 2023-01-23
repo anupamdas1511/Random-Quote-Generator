@@ -6,7 +6,7 @@ body {
     height: 100vh;
     width: 100vw;
     background: #AEE2FF;
-    font-family: 'Great Vibes', cursive;
+    font-family: 'Satisfy', cursive;
 }
 
 .card {
@@ -41,5 +41,16 @@ img {
 .writting {
     display: flex;
     justify-content: center;
-    font-size: larger;
+    font-size: x-large;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 30px;
+}
+
+#author {
+    display: flex;
+    justify-content: right;
+    padding-right: 20px;
+    font-family: 'Roboto Mono', monospace;
+    padding-top: 20px;
 }
