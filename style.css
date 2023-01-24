@@ -1,3 +1,8 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -10,6 +15,10 @@ body {
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* justify-content: space-between; */
     height: 60vh;
     width: 40vw;
     background: #EFEFEF;
@@ -32,6 +41,8 @@ img {
     cursor: pointer;
 }
 
+
+
 .quotes {
     font-size: 100px;
     padding-left: 20px;
@@ -41,7 +52,7 @@ img {
 .writting {
     display: flex;
     justify-content: center;
-    font-size: x-large;
+    font-size: large;
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 30px;
@@ -53,4 +64,19 @@ img {
     padding-right: 20px;
     font-family: 'Roboto Mono', monospace;
     padding-top: 20px;
+    font-size: 13px;
+}
+
+#change {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 89, 255, 0.89);
+    height: 50px;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+}
+
+#change:hover {
+    cursor: pointer;
 }
